@@ -111,17 +111,14 @@ class ResizingIntSet
   end
 
   def resize!
-    costco = Array.new(count*2) { Array.new }
-    @store.each do |bucket|
+    tempvar = @store
+    @store = Array.new(count*2) { Array.new }
+    @count = 0
+    tempvar.each do |bucket|
       bucket.each do |el|
-        mod = el % costco.length
-        costco[mod] << el
+        insert(el)
       end
     end
-    @store = deep_dup(costco)
-  end
 
-  def deep_dup(arr)
-    arr.map { |el| el.is_a?(Array) ? deep_dup(el) : el }
   end
 end
