@@ -20,6 +20,11 @@ end
 
 class LinkedList
   def initialize
+    @head = Node.new(nil, nil)
+    @tail = Node.new(nil, nil)
+
+
+
   end
 
   def [](i)
@@ -28,6 +33,7 @@ class LinkedList
   end
 
   def first
+
   end
 
   def last
